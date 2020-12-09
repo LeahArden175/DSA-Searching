@@ -55,9 +55,56 @@ function main() {
   BST.insert("90", 90);
   BST.insert("22", 22);
 
-  console.log(BST.preOrder())
-  console.log(BST.inOrder())
-  console.log(BST.postOrder())
+  console.log(BST.preOrder());
+  console.log(BST.inOrder());
+  console.log(BST.postOrder());
 }
 
-main()
+main();
+
+//DRILL 6
+
+function ranking() {
+  let officers = new BinarySearchTree();
+
+  officers.insert("picard", 5);
+  officers.insert("riker", 3);
+  officers.insert("worf", 2);
+  officers.insert("laforge", 4);
+  officers.insert("sec-officer", 1);
+  officers.insert("data", 6);
+  officers.insert("crusher", 8);
+  officers.insert("selar", 7);
+
+  console.log(rank(officers));
+}
+
+ranking();
+
+//DRILL 8
+
+function maxProfit(data) {
+    if (data.length < 2) {
+      return 'Not enough data'
+    }
+    let currMaxProf = data[0] - data[1]
+    let dayToBuy = 0
+  
+    for(let i = 0; i < data.length; i++) {
+      let profit = data[i - 1] - data[i]
+      if(profit > currMaxProf) {
+        currMaxProf = profit
+        dayToBuy = i - 1
+      }
+    }
+    return `Buy on day '${dayToBuy}' for a profit of '${currMaxProf}'`
+  }
+  
+  function main() {
+    let weekOne = [
+      128, 97, 121, 123, 98, 97, 105
+    ]
+    console.log(maxProfit(weekOne))
+  }
+  
+  main()
